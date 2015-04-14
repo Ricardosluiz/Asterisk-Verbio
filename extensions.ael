@@ -1,0 +1,146 @@
+##### extensions.ael
+context default {
+
+7200 => {
+begin:
+Answer();
+VerbioLoadVcb(departamentos.txt,isolated,,,v);
+Set(DEPARTAMENTO="Olá! você ligou para Contabilidade.... Como posso lhe ajudar?");
+VerbioPrompt("${DEPARTAMENTO}");
+VerbioRec(,,,,,vb);
+  switch (${VASR_RESULT}) {
+
+     case 1:
+        Set(PESSOA="Entendi...  Departamento Pessoal... Por favor diga o nome da pessoa com quem quer falar.");
+        VerbioPrompt("${PESSOA}");
+          VerbioLoadVcb(pessoas.txt,isolated,,,v);
+          VerbioRec(,,,,,vb);
+          switch (${VASR_RESULT}) {
+           case 7281:
+             Set(RESPOSTA="Aguarde estou transferindo sua chamada para o ramal ${VASR_RESULT} do Departamento Pessoal");
+             VerbioPrompt("${resposta}");
+             Dial(iax2/7281);
+             Hangup();
+           case 7282:
+             Set(RESPOSTA="Aguarde estou transferindo sua chamada para o ramal ${VASR_RESULT} do Departamento Pessoal");
+             VerbioPrompt("${resposta}");
+             Dial(iax2/7282);
+             Hangup();
+             default:
+             Set(RESPOSTA="Eu não entendi... mas não tem problema irei transferir para central do Departamento Pessoal");
+             VerbioPrompt("${resposta}");
+             Dial(iax2/7281);
+             Hangup();
+            };
+
+     case 2:
+        Set(PESSOA="Entendi...  Departamento Fiscal... Por favor diga o nome da pessoa com quem quer falar.");
+        VerbioPrompt("${PESSOA}");
+         VerbioLoadVcb(pessoas.txt,isolated,,,v);
+         VerbioRec(,,,,,vb);
+          switch (${VASR_RESULT}) {
+           case 7283:
+             Set(RESPOSTA="Aguarde estou transferindo sua chamada para o ramal ${VASR_RESULT} do Departamento Fiscal");
+             VerbioPrompt("${resposta}");
+             Dial(iax2/7283);
+             Hangup();
+           case 7284:
+             Set(RESPOSTA="Aguarde estou transferindo sua chamada para o ramal ${VASR_RESULT} do Departamento Fiscal");
+             VerbioPrompt("${resposta}");
+             Dial(iax2/7284);
+             Hangup();
+             default:
+             Set(RESPOSTA="Eu não entendi... mas não tem problema irei transferir para central do Departamento Fiscal");
+             VerbioPrompt("${resposta}");
+             Dial(iax2/7283);
+             Hangup();
+          };
+
+
+     case 3:
+        Set(PESSOA="Entendi...  Departamento Contábil... Por favor diga o nome da pessoa com quem quer falar.");
+        VerbioLoadVcb(pessoas.txt,isolated,,,v);
+        VerbioPrompt("${PESSOA}");
+        VerbioRec(,,,,,vb);
+          switch (${VASR_RESULT}) {
+           case 7285:
+             Set(RESPOSTA="Aguarde estou transferindo sua chamada para o ramal ${VASR_RESULT} do Departamento Contábil");
+             VerbioPrompt("${resposta}");
+             Dial(iax2/7285);
+             Hangup();
+           case 7286:
+             Set(RESPOSTA="Aguarde estou transferindo sua chamada para o ramal ${VASR_RESULT} do Departamento Contábil");
+             VerbioPrompt("${resposta}");
+             Dial(iax2/7286);
+             Hangup();
+             default:
+             Set(RESPOSTA="Eu não entendi... mas não tem problema, irei transferir para central do Departamento Pessoal");
+             VerbioPrompt("${resposta}");
+             Dial(iax2/7285);
+             Hangup();
+        };
+         default:
+            Set(RESPOSTA="Eu não entendi... mas não tem problema, irei transferir para central de Antendimento da Empresa");
+             VerbioPrompt("${resposta}");
+             Dial(iax2/7201);
+             Hangup();
+};
+};
+
+7201 => {
+begin:
+  Answer();
+  Set(FALA="Olá! você ligou para o ramal 7201!");
+  VerbioPrompt("${FALA}");
+  Hangup();
+};
+
+7281 => {
+begin:
+  Answer();
+  Set(FALA="Olá! você ligou para o ramal 7281!");
+  VerbioPrompt("${FALA}");
+  Hangup();
+};
+
+7282 => {
+begin:
+  Answer();
+  Set(FALA="Olá! você ligou para o ramal 7282!");
+  VerbioPrompt("${FALA}");
+  Hangup();
+};
+
+7283 => {
+  begin:
+  Answer();
+  Set(FALA="Olá! você ligou para o ramal 7283!");
+  VerbioPrompt("${FALA}");
+  Hangup();
+};
+
+7284 => {
+  begin:
+  Answer();
+  Set(FALA="Olá! você ligou para o ramal 7284!");
+  VerbioPrompt("${FALA}");
+  Hangup();
+};
+
+7285 => {
+  begin:
+  Answer();
+  Set(FALA="Olá! você ligou para o ramal 7285!");
+  VerbioPrompt("${FALA}");
+  Hangup();
+};
+
+7286 => {
+  begin:
+  Answer();
+  Set(FALA="Olá! você ligou para o ramal 7286!");
+  VerbioPrompt("${FALA}");
+  Hangup();
+};
+
+};

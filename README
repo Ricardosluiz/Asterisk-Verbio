@@ -1,0 +1,10 @@
+PLANO DE DISCAGEM ASTERISK COMPLETO COM MODULO DE RECONHECIMENTO DE VOZ DA VERBIO
+
+### Primeiro configure seu asterisk e instale o modulo VERBIO ###
+
+### Agora é só adaptar o código em sua estrutura de discagem ###
+
+Obs: O modulo que utilizei é DEMO, mas ele reconhece perfeitamente!
+
+
+--------- RICARDO SL-------------

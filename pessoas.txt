@@ -1,0 +1,7 @@
+################# /var/lib/asterisk/verbio/gram/pessoas.txt
+7281	Ricardo
+7282	João
+7283	Antonio
+7284	Elaine
+7285	Maria
+7286	Orlando

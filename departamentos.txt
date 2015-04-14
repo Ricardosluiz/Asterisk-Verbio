@@ -1,0 +1,4 @@
+################ /var/lib/asterisk/verbio/gram/departamentos.txt
+1	Departamento Pessoal
+2	Departamento Fiscal
+3	Departamento Contábil
